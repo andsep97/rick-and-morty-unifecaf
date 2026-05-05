@@ -1,0 +1,214 @@
+/*  FONTE CUSTOMIZADA */
+@font-face {
+    font-family: 'GetSchwifty';
+    src: url('./fonts/get_schwifty.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* RESET E ESTILOS GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'sans-serif', sans-serif;
+    background: #97CE4C;
+    color: #000000;
+    line-height: 2.0;
+    letter-spacing: 3px;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #97CE4C, #5CAD4A);
+    text-align: center;
+    padding: 3rem 1rem;
+    border-bottom: 5px solid #f0e14a;
+}
+
+header h1 {
+    font-family: 'GetSchwifty', sans-serif;
+    font-size: 3.5rem;
+    color: #000000;
+    /* Efeito de contorno azul/ciano característico da série */
+    text-shadow: 
+        -2px -2px 0 #20b2aa,  
+         2px -2px 0 #20b2aa,
+        -2px  2px 0 #20b2aa,
+         2px  2px 0 #20b2aa,
+         4px  4px 0 rgba(0,0,0,0.5);
+    letter-spacing: 6px;
+    letter-spacing: 5px;
+}
+
+/* SEÇÕES PRINCIPAIS */
+.intro {
+    text-align: center;
+    padding: 2rem;
+    color: #000000;
+}
+
+.characters {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* GRID DE CARDS */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ESTRUTURA DO CARD COM FLIP 3D */
+.card {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Ativa o efeito de flip quando o card tem a classe 'flipped' */
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* ESTILOS COMUNS FRENTE E VERSO */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(68, 40, 29, 0.6);
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #e4a788;
+}
+
+/* FRENTE DO CARD */
+.card-front {
+    background: linear-gradient(135deg, #5c3a2a, #6b4839);
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+}
+
+.card-front:hover {
+    box-shadow: 0 12px 24px rgba(238, 240, 235, 0.945);
+    border-color: #97ce4c;
+    transition: all 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Conteúdo textual na frente */
+.card-content {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.card-content h3 {
+    color: #f0e14a;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    word-wrap: break-word;
+}
+
+.card-content p {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    color: #f0e14a;
+}
+
+/* VERSO DO CARD */
+.card-back {
+    background: linear-gradient(135deg, #5c3a2a, #6b4839);
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    overflow-y: auto;
+    justify-content: flex-start;
+}
+
+.card-back-content {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.card-back-content h3 {
+    color: #e94560;
+    margin-bottom: 0.5rem;
+}
+
+.card-back-content h4 {
+    color: #f0e14a;
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.card-back-content p {
+    margin: 0;
+    color: #e4a788;
+    word-break: break-word;
+}
+
+/* STATUS DO PERSONAGEM */
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Cores para cada status */
+.status.alive {
+    background: #01520c;
+    color: #44281d;
+}
+
+.status.dead {
+    background: #f00505;
+    color: #44281d;
+}
+
+.status.unknown {
+    background: #d86507;
+    color: #44281d;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #44281d;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    color: #e4a788;
+}
