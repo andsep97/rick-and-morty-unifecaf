@@ -71,6 +71,13 @@ const TRADUCOES_LOCALIZACAO = {
     'Testicle Monster Dimension': 'Dimensão do Monstro Testículo',
 };
 
+// Mapeia dimensões da API para português
+const TRADUCOES_DIMENSAO = {
+    'C-137': 'C-137',
+    'Replacement Dimension': 'Dimensão de Reposição',
+    'unknown': 'Desconhecido',
+};
+
 
 // Mapeia tipos de personagem da API para português
 const TRADUCOES_TIPO = {
@@ -89,6 +96,7 @@ const TRADUCOES_TIPO = {
     'Clone': 'Clone',
     'Human': 'Humano',
     'Genetic experiment': 'Experimento Genético',
+    'unknown': 'Desconhecido',
 };
 
 // FUNÇÕES UTILITÁRIAS 
@@ -193,11 +201,11 @@ function criarVerso(personagem) {
     nomeBack.textContent = personagem.name;
     nomeBack.style.color = '#e94560';
 
-    // Tipo
+    // Dimensão
     const tipo = criarElemento('div');
-    const tipoTexto = obterValorSeguro(personagem.type) || personagem.species;
-    const tipoTraduzido = traduzir(tipoTexto, TRADUCOES_TIPO);
-    tipo.innerHTML = `<h4>${ROTULOS.tipo}:</h4><p>${tipoTraduzido}</p>`;
+    const dimensaoTexto = obterValorSeguro(personagem.dimension);
+    const dimensaoTraduzida = traduzir(dimensaoTexto, TRADUCOES_DIMENSAO);
+    tipo.innerHTML = `<h4>Dimensão:</h4><p>${dimensaoTraduzida}</p>`;
 
     // Gênero
     const genero = criarElemento('div');
